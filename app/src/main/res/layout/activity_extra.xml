@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is a test"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:id="@+id/ExtrasTextView"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

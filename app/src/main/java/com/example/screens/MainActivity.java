@@ -16,12 +16,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button ExtraActivityButton = findViewById(R.id.ExtraActivityButton);
+
         ExtraActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
+                intent.putExtra("Potato", "King Edward"); // Optional
+                intent.putExtra("seven", 7); // Optional
                 startActivity(intent);
+
+
 
             }
         });
