@@ -15,8 +15,8 @@ public class ExtraActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String type = extras.getString("Potato");
-            int number = extras.getInt("seven");
+            String type = extras.getString("potatoType");
+            int number = extras.getInt("anyNumber");
 
             TextView ExtrasTextView = findViewById(R.id.ExtrasTextView);
             ExtrasTextView.setText("Potatos are great. Especially the type " + type + ". And Atleast " + number + " Each meal.");

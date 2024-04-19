@@ -22,12 +22,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
-                intent.putExtra("Potato", "King Edward"); // Optional
-                intent.putExtra("seven", 7); // Optional
+                intent.putExtra("potatoType", "King Edward"); // Optional
+                intent.putExtra("anyNumber", 7); // Optional
                 startActivity(intent);
-
-
-
             }
         });
     }

@@ -2,22 +2,46 @@
 # Rapport
 Skapade en ytterligare aktivitet genom new -> Activity -> Empty Views Activity, och döpte den till ExtraActivity.
 
-La till en knapp i den första (start-activityn) genom xml filen för scenen. Denna används för att starta den andra aktivitieten (Extra Activity)
+La till en knapp i den första (start-activityn, activity_main) genom xml filen för scenen. Denna används för att starta den andra aktivitieten (Extra Activity)
+i ett senare skede. Jag gav även knappen ett ID, för att kunna nå den.
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+<Button
+        android:layout_width="match_parent"
+        android:id="@+id/ExtraActivityButton"
+        ...
+        />
 ```
+För att kunna använda knappen, satte jag en onClickListener som därmed reagerar på när knappen trycks på. I listenern lägger jag till att
+den ska skapa en ny intent, där intenten skapas i MainActivity, och "går till/leder till/är dirrigerad till" ExtraActivity classen. StartActivity(intent)
+innebär alltså att intenten startas (och igentligen skapas, via tidigare kodrader) vid knapptrycket.
+```
+ExtraActivityButton.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
+                ...
+                ...
+                startActivity(intent);
+            }
+        });
+```
+
+Genom intent.putExtra signaleras vilken 
+```
+ExtraActivityButton.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
+                intent.putExtra("potatoType", "King Edward"); // Optional
+                intent.putExtra("anyNumber", 7); // Optional
+                startActivity(intent);
+            }
+        });
+```
+
+
 
 Bilder läggs i samma mapp som markdown-filen.
 
