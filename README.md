@@ -26,22 +26,35 @@ public void onClick(View view) {
             }
         });
 ```
-
-Genom intent.putExtra signaleras vilken 
+Genom intent.putExtra signaleras vilken del som ska ändras på, vilket i detta fallet är potatoType, och anyNumber. Genom intent.putExtra sätts 
+bland annat potatis typen "King Edward" in, i potatoType. Även any number får en 7:a. Dessa manipulerar data som finns i ExtraActivity.java.
 ```
 ExtraActivityButton.setOnClickListener(new View.OnClickListener() {
 @Override
 public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, ExtraActivity.class);
+                ...
                 intent.putExtra("potatoType", "King Edward"); // Optional
                 intent.putExtra("anyNumber", 7); // Optional
-                startActivity(intent);
+                ...
             }
         });
 ```
+Inom ExtraActivity.java skapas ett Bundle objekt, som sedan "ges" intenten som vi skapat, skickar med datan, Extras, som vi skickat med intentet.
+Denna data kan synas i kodraden ovanför. Notera att vi sätter type och number till det värdet som vi angett i intent.putExtra. 
+Exempelvis: potatoType, som innehåller "King Edward". Notera att vi skapar en referens till ExtrasTextView, som baseras på vår egenskapade TextView i activity_extra.
+Denna ändrar vi texten på, där de "extras" som skapats finns med.
+```
+Bundle extras = getIntent().getExtras();
+if (extras != null) {
+String type = extras.getString("potatoType");
+int number = extras.getInt("anyNumber");
 
+            TextView ExtrasTextView = findViewById(R.id.ExtrasTextView);
+            ExtrasTextView.setText("Potatos are great. Especially the type " + type + ". And Atleast " + number + " Each meal.");
 
+        }
+```
 
 Bilder läggs i samma mapp som markdown-filen.
 
