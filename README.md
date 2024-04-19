@@ -66,5 +66,6 @@ int number = extras.getInt("anyNumber");
 ```
 Nedan syns start-scenen.
 ![](StartScreen.png)
+
 Nedan syns extra-scenen.
 ![](ExtraScreen.png)
